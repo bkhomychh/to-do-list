@@ -4,9 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webpack starter</title>
+    <title>To do list</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
   </head>
   <body>
-    <h1>Webpack starter</h1>
+    <main class="content">
+      <div class="content__container container">
+        <h1 class="content__title">To do list</h1>
+        <form class="content__new-item new-item">
+          <input class="new-item__name" type="text" name="taskName" placeholder="Add new item" />
+          <button class="new-item__btn" type="submit">Add</button>
+        </form>
+        <ul class="content__list list"></ul>
+        <div class="content__footer">
+          <button class="content__btn js-clear-btn" type="button">Clear all</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container"><p class="footer__info">&copy Copyright - 2023</p></div>
+    </footer>
   </body>
 </html>

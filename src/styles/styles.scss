@@ -1,1 +1,215 @@
-@import url('modern-normalize');
+@import 'modern-normalize';
+
+@import './base/custom-normalizer';
+@import './utils/mixins';
+@import './utils/variables';
+
+
+
+body {
+  padding: 50px 15px 30px;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  background-color: $bg-color-primary;
+
+  @include desktop {
+    padding: 50px 0 30px;
+  }
+}
+
+.container {
+  max-width: 480px;
+  min-width: 320px;
+  padding: 0 15px;
+  margin: 0 auto;
+
+  @include tablet {
+    max-width: 900px;
+  }
+
+  @include desktop {
+    max-width: 1030px;
+  }
+}
+
+.content {
+  margin-bottom: 60px;
+
+  &__container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    padding: 70px 30px;
+    background-color: $bg-color-secondary;
+    box-shadow: 0px 0px 4px rgba(0, 23, 71, 0.15);
+    border-radius: 32px;
+
+    @include tablet {
+      padding: 70px 100px;
+    }
+
+    @include desktop {
+      padding: 70px 200px;
+    }
+  }
+}
+
+.content__title {
+  margin-bottom: 32px;
+
+  font-weight: 600;
+  font-size: 48px;
+  line-height: calc(57 / 48);
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  color: $text-color-primary;
+}
+
+.new-item {
+  position: relative;
+
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+
+.new-item__name {
+  padding: 20px 100px 20px 20px;
+  width: 100%;
+
+  color: $text-color-primary;
+  border: 1px solid;
+  border-radius: 8px;
+}
+
+.new-item__btn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+
+  padding: 12px 24px;
+
+  color: $bg-color-secondary;
+  background-color: $text-color-hover;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+
+  transition: background-color 250ms ease-in-out;
+
+  &:hover {
+    background-color: rgb(2, 63, 216);
+  }
+}
+
+.list {
+  margin-bottom: 55px;
+}
+
+.list__item {
+  position: relative;
+
+  line-height: 1.5;
+  font-weight: 500;
+  color: $text-color-primary;
+
+  transition: box-shadow 250ms ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 1px 1px 3px $text-color-secondary;
+  }
+
+  &--done {
+    color: $text-color-secondary;
+    text-decoration: line-through;
+  }
+}
+
+.list__text {
+  display: flex;
+  align-items: center;
+  padding: 10px 50px 10px 20px;
+
+  overflow: hidden;
+}
+
+.list__text::before {
+  content: '';
+
+  display: inline-block;
+  align-self: baseline;
+  margin-right: 16px;
+  min-width: 32px;
+  height: 32px;
+
+  border: 1px solid rgba(45, 112, 253, 0.15);
+  border-radius: 50%;
+
+  background: url('../images/tick.svg') no-repeat center;
+
+  transition: background 250ms ease-in-out;
+}
+
+.list__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.list__item--done .list__text::before {
+  background-color: $bg-color-tick;
+}
+
+.list__btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  padding: 5px;
+  height: 32px;
+  width: 32px;
+  min-width: 32px;
+
+  border-radius: 5px;
+
+  transition: background-color 250ms ease-in-out;
+
+  &:hover {
+    background-color: $bg-color-btn-hover;
+  }
+}
+
+.list__icon {
+  height: 100%;
+  width: 100%;
+
+  pointer-events: none;
+}
+
+.content__footer {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+
+  font-weight: 500;
+  color: $text-color-secondary;
+
+  border-top: 1px solid $border-color;
+}
+
+.content__btn {
+  color: inherit;
+  font-weight: 500;
+
+  transition: color 250ms ease-in-out;
+
+  &:hover {
+    color: $text-color-hover;
+  }
+}
+
+.footer__info {
+  text-align: center;
+  font-weight: 500;
+  color: $text-color-secondary;
+}
